@@ -24,6 +24,7 @@ public class Solution {
                 for(int i = 0; i < N - 1; ++i){
                     if(A[i][j] > A[i + 1][j]){System.out.println("NO"); flag = true; break;}
                 }
+                if(flag) break;
             }
             if(!flag) System.out.println("YES");
         }
