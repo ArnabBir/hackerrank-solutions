@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    priority_queue<long> arr;
+    long temp;
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+       cin >> temp;
+       arr.push(temp);
+    }
+    temp = arr.top();
+    arr.pop();
+    long Sum = 0;
+    for(int i= 0; i < 3; ++i){
+        Sum += arr.top();
+        arr.pop();
+    }
+    cout<<Sum + arr.top()<<" "<<Sum + temp<<endl;
+    
+    return 0;
+}
