@@ -7,20 +7,15 @@ The Node struct is defined as follows:
 		Node* right;
 	}
 */
-
-    bool isBST(Node * node, int maxLeft, int minRight) {
+    bool checkBSTUtil(Node * node, int minVal, int maxVal) {
         
-        if(node == NULL) {
-            return true;
-        }
-        if(node->data <= maxLeft || node->data >= minRight) {
-            return false;
-        }
-        return isBST(node->left, maxLeft, node->data) 
-            && isBST(node->right, node->data, minRight);
+        if(node == NULL)    return true;
+        if(node->data <= minVal || node->data >= maxVal)  return false;
+        return checkBSTUtil(node->right, node->data, maxVal)
+            && checkBSTUtil(node->left, minVal, node->data);
     }
 
 	bool checkBST(Node* root) {
         
-		return isBST(root, -1, 100001);
+        return checkBSTUtil(root, 0, 10001);
 	}
